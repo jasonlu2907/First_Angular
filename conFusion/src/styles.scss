@@ -3,12 +3,18 @@
 
 // some basic resets 
 html {
-  font-size: 62.5%;
+    font-size: 62.5%;
 }
 
-body {
-  padding: 0;
-  margin: 0;
-  font-family: Roboto, sans-serif;
+body { 
+  padding: 0; 
+  margin: 0 auto; 
+  font-family: Roboto, sans-serif; 
+  
+}
 
+.container {
+    margin: 20px;
+    display: flex;
+    font-size: 1.6rem;
 }
