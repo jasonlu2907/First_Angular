@@ -13,3 +13,7 @@ My first Angular Application
 - `npm install --save @angular/animations@6.1.7 hammerjs@2.0.8`
 
 3. Angular Components
+- To generate a component `ng g component *componentName*`
+
+4. Angular Services
+- To generate a service `ng g service *serviceName*`
