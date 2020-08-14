@@ -17,3 +17,6 @@ My first Angular Application
 
 4. Angular Services
 - To generate a service `ng g service *serviceName*`
+
+5. Add an Angular Router Module
+- `ng generate module *name*`, I use as app-routing
