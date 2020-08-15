@@ -16,12 +16,13 @@ import { MenuComponent } from './menu/menu.component';
 import { DishdetailComponent } from './dishdetail/dishdetail.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-
-// SERVICES
-import { DishService } from './services/dish.service';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
+
+// SERVICES
+import { DishService } from './services/dish.service';
+import { PromotionService } from './services/promotion.service';
 
 
 @NgModule({
@@ -45,7 +46,7 @@ import { ContactComponent } from './contact/contact.component';
     MatIconModule, MatProgressSpinnerModule, MatDialogModule,
     AppRoutingModule
   ],
-  providers: [DishService],
+  providers: [DishService, PromotionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
