@@ -20,7 +20,9 @@
   <div fxFlex>
     <mat-grid-list cols="2" rowHeight="300px">
 
-      <mat-grid-tile *ngFor="let dish of dishes" (click)="onSelect(dish)">
+      <!-- CÁCH CŨ TRƯỚC KHI ĐỂ DISHDETAIL LÀ 1 TRANG RIÊNG -->
+      <!-- <mat-grid-tile *ngFor="let dish of dishes" (click)="onSelect(dish)"> -->
+        <mat-grid-tile *ngFor="let dish of dishes" [routerLink]="['/dishdetail', dish.id]">
         <img height="200px" src={{dish.image}} alt={{dish.name}}>
         <mat-grid-tile-footer>
           <h1>{{dish.name | uppercase}}</h1>
@@ -32,5 +34,5 @@
 
 </div>
 
-<app-dishdetail [dish]="selectedDish"></app-dishdetail>
+<!-- <app-dishdetail [dish]="selectedDish"></app-dishdetail> -->
 
