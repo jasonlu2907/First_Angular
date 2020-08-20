@@ -11,6 +11,7 @@ import { MatRadioModule } from "@angular/material/radio";
 import { MatSelectModule } from "@angular/material/select";
 import { MatSliderModule } from "@angular/material/slider";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatListModule } from "@angular/material/list";
 import { MatGridListModule } from "@angular/material/grid-list";
@@ -74,7 +75,8 @@ import { LeaderService } from "./services/leader.service";
     MatProgressSpinnerModule,
     FormsModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [DishService, PromotionService, LeaderService],
   entryComponents: [LoginComponent],
