@@ -22,7 +22,8 @@ export class DishdetailComponent implements OnInit {
     const id = +this.route.snapshot.params['id'];
     // this.dish = this.dishservice.getDish(id.toString());
     this.dishservice.getDish(id.toString())
-                    .then(dish => this.dish = dish);
+                      .subscribe(dish => this.dish = dish); // DUNG OBSERVABLE
+                    // .then(dish => this.dish = dish); // DUNG PROMISE
   }
 
   goBack(): void {

@@ -24,7 +24,9 @@ export class MenuComponent implements OnInit {
     // Cách cũ trc khi xài Promise
     // this.dishes = this.dishService.getDishes();
     this.dishService.getDishes()
-      .then(dishes => this.dishes = dishes);
+      .subscribe(dishes => this.dishes = dishes); // Dung Observable
+      // .then(dishes => this.dishes = dishes); // Dung Promise
+
   }
 
   onSelect(dish: Dish) {

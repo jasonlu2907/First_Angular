@@ -26,9 +26,15 @@ export class HomeComponent implements OnInit {
     this.promotion = this.promotionservice.getFeaturedPromotion();
     this.leader = this.leaderservice.getFeaturedLeader();*/
 
-    this.dishservice.getFeaturedDish().then(ftDish => this.dish = ftDish);
-    this.promotionservice.getFeaturedPromotion().then(ftPromo => this.promotion = ftPromo);
-    this.leaderservice.getFeaturedLeader().then(ftLeader => this.leader = ftLeader);
+    /* DUNG PROMISE */
+    // this.dishservice.getFeaturedDish().then(ftDish => this.dish = ftDish);
+    // this.promotionservice.getFeaturedPromotion().then(ftPromo => this.promotion = ftPromo);
+    // this.leaderservice.getFeaturedLeader().then(ftLeader => this.leader = ftLeader);
+  
+    /* DUNG OBSERVABLE */
+    this.dishservice.getFeaturedDish().subscribe(ftDish => this.dish = ftDish);
+    this.promotionservice.getFeaturedPromotion().subscribe(ftPromo => this.promotion = ftPromo);
+    this.leaderservice.getFeaturedLeader().subscribe(ftLeader => this.leader = ftLeader);
   }
 
 }
