@@ -22,6 +22,7 @@ export class DishdetailComponent implements OnInit {
               private location: Location) { }
 
   ngOnInit() {
+    // MỚI
     this.dishservice.getDishIds().subscribe(dishIds => this.dishIds = dishIds);
     this.route.params
           .pipe(switchMap((params: Params) => this.dishservice.getDish(params['id'])))
@@ -30,6 +31,7 @@ export class DishdetailComponent implements OnInit {
                                 this.setPrevNext(dish.id);
           });
     
+    // CŨ
     // const id = +this.route.snapshot.params['id'];
     // // this.dish = this.dishservice.getDish(id.toString());
     // this.dishservice.getDish(id.toString())
