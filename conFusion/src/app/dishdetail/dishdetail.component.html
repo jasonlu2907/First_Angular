@@ -59,5 +59,32 @@
         </mat-list-item>
       </mat-list>
       
+      <!-- ASSIGNMENT 3 -->
+      <p>{{ commentForm.value | json }}</p>
+      <form novalidate [formGroup]="commentForm" #cform="ngForm" (ngSubmit)="onSubmit()">
+        <p>
+          <mat-form-field class="full-width">
+            <input matInput formControlName="author" placeholder="Name" type="text" required>
+            <mat-error *ngIf="formErrors.author">
+              {{formErrors.author}}
+            </mat-error>
+          </mat-form-field>
+        </p>
+
+        <mat-form-field class="full-width">
+          <textarea matInput formControlName="comment" placeholder="Your Feedback" rows=12></textarea>
+          <mat-error *ngIf="formErrors.comment">
+            {{formErrors.comment}}
+          </mat-error>
+        </mat-form-field>
+        
+        <p class="full-width">
+          <!-- ĐOẠN NÀY PHẢI THÊM formControlName thì bên ts nó ms PUSH đc
+          đồng thời value trong mat-slider sẽ ko reset lại = 0 -->
+          <mat-slider thumbLabel formControlName="rating" [displayWith]="formatLabel" tickInterval="5" min="1" max="5"
+          value={{commentForm.value.rating}}></mat-slider>
+        </p>
+        <button [disabled]="commentForm.invalid" type="submit" mat-button class="background-primary text-floral-white">Submit</button>
+      </form>
     </div>
 </div>
