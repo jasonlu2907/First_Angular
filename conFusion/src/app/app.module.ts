@@ -23,6 +23,9 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatDialogModule } from "@angular/material/dialog";
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+
 // ROUTING MODULE
 import { AppRoutingModule } from "./app-routing/app-routing.module";
 
@@ -42,6 +45,7 @@ import { DishService } from "./services/dish.service";
 import { PromotionService } from "./services/promotion.service";
 import { LeaderService } from "./services/leader.service";
 
+import { baseURL } from './shared/baseurl';
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,9 +80,12 @@ import { LeaderService } from "./services/leader.service";
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule,
+    HttpClientModule
   ],
-  providers: [DishService, PromotionService, LeaderService],
+  providers: [DishService, PromotionService, LeaderService,
+    {provide: 'BaseURL', useValue: baseURL}],
   entryComponents: [LoginComponent],
   bootstrap: [AppComponent],
 })

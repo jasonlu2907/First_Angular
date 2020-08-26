@@ -23,7 +23,10 @@
       <!-- CÁCH CŨ TRƯỚC KHI ĐỂ DISHDETAIL LÀ 1 TRANG RIÊNG -->
       <!-- <mat-grid-tile *ngFor="let dish of dishes" (click)="onSelect(dish)"> -->
         <mat-grid-tile *ngFor="let dish of dishes" [routerLink]="['/dishdetail', dish.id]">
-          <img height="200px" src={{dish.image}} alt={{dish.name}}>
+          
+          <!-- append 2 duong link BaseURL vs dish.image
+          localhost:3000/concat.png-->
+          <img height="200px"  src="{{ BaseURL + dish.image }}" alt={{dish.name}}>
           <mat-grid-tile-footer>
             <h1>{{dish.name | uppercase}}</h1>
           </mat-grid-tile-footer>
