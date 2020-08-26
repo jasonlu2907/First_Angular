@@ -20,3 +20,18 @@ My first Angular Application
 
 5. Add an Angular Router Module
 - `ng generate module *name*`, I use as app-routing
+
+6. Set up a Server using JSON-SERVER
+- `npm install json-server -g`
+- Create a json-server folder anywhere you comfort with
+- Create db.json, `json-server --watch db.json -d 2000`
+- Result:
+`\{^_^}/ hi!
+Loading db.json
+  Done
+  Resources
+http://localhost:3000/dishes
+http://localhost:3000/promotions
+http://localhost:3000/leaders
+http://localhost:3000/feedback`
+- You can also see images folder in json-server by access `http://localhost:3000/images/<image name>.png`
