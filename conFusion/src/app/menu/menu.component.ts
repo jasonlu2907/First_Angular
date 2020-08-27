@@ -18,6 +18,8 @@ export class MenuComponent implements OnInit {
   dishes: Dish[];
   selectedDish: Dish;
 
+  errMess: string;
+
   constructor(private dishService: DishService,
     @Inject('BaseURL') private BaseURL) {}
 
@@ -25,7 +27,8 @@ export class MenuComponent implements OnInit {
     // Cách cũ trc khi xài Promise
     // this.dishes = this.dishService.getDishes();
     this.dishService.getDishes()
-      .subscribe(dishes => this.dishes = dishes); // Dung Observable
+      .subscribe(dishes => this.dishes = dishes,
+        errmess => this.errMess = <any>errmess); // Dung Observable
       // .then(dishes => this.dishes = dishes); // Dung Promise
 
   }
