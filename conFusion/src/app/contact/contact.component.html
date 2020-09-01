@@ -1,14 +1,14 @@
 <div class="container"
   fxLayout="column"
   fxLayoutGap="10px">
-  <div fxFlex>
+  <div fxFlex [@expand]>
     <div>
         <h3>Contact Us</h3>
         <hr>
     </div>
   </div>
 
-  <div fxFlex>
+  <div fxFlex [@expand]>
     <h3>Location Information</h3> 
     <div fxLayout="column" fxLayout.gt-sm="row">
       <div fxFlex="50" fxFlexOffset="20px">
@@ -35,14 +35,20 @@
     </div>
   </div>
 
-  <div fxFlex fxFlexOffset="20px" class="form-size">
+  <div fxFlex fxFlexOffset="20px" class="form-size" [@expand]>
     <h3>Send us your Feedback</h3>
-    <p>{{ feedbackForm.value | json }} {{ feedbackForm.status | json }}</p>
-
+    <!-- <p>{{ feedbackForm.value | json }} </p> -->
+    <div *ngIf="!isLoading">
+      <p>First Name: {{ feedbackForm.value.firstname }}</p>
+      <p>Last Name: {{ feedbackForm.value.lastname }}</p>
+      <p>Tel. num: {{ feedbackForm.value.telnum }}</p>
+      <p>Email: {{ feedbackForm.value.email }}</p>
+    </div>
+    
     <!-- REACTIVE FORM -->
     <!-- đổi formGroup, formControlName là ko xài đc
       MAYBE LÀ THUỘC TÍNH CỦA MODULE FormGroup trong Angular-->
-    <form novalidate [formGroup]="feedbackForm" #fform="ngForm"
+    <form novalidate [formGroup]="feedbackForm" *ngIf="!isLoading"
                                             (ngSubmit)="onSubmit()">
       <p>
         <mat-form-field class="half-width">
@@ -98,5 +104,53 @@
       </p>
       <button [disabled]="feedbackForm.invalid" type="submit" mat-button class="background-primary text-floral-white">Submit</button>
     </form>
+
+    <mat-card *ngIf="isLoading && !isShowingResponse"
+              style="display: flex; justify-content: center; align-items: center"
+              @expand>
+      <mat-progress-spinner
+        color="primary"
+        mode="indeterminate">
+      </mat-progress-spinner>
+    </mat-card>
+    <mat-card *ngIf="isShowingResponse"
+              style="display: flex;"
+              @expand>
+      <mat-card-header>
+        <mat-card-title>Your Submission</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <table>
+          <tr>
+            <td><span>First Name:</span></td>
+            <td>{{feedback.firstname}}</td>
+          </tr>
+          <tr>
+            <td><span>Last Name:</span></td>
+            <td>{{feedback.lastname}}</td>
+          </tr>
+          <tr>
+            <td><span>Tel. Number:</span></td>
+            <td>{{feedback.telnum}}</td>
+          </tr>
+          <tr>
+            <td><span>Email:</span></td>
+            <td>{{feedback.email}}</td>
+          </tr>
+          <tr>
+            <td><span>Contact You:</span></td>
+            <td>{{feedback.agree}}</td>
+          </tr>
+          <tr>
+            <td><span>How:</span></td>
+            <td>{{feedback.contacttype}}</td>
+          </tr>
+          <tr>
+            <td><span>Feedback:</span></td>
+            <td>{{feedback.message}}</td>
+          </tr>
+        </table>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>

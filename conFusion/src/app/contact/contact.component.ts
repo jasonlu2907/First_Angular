@@ -5,8 +5,6 @@ import { Feedback, ContactType } from '../shared/feedback';
 
 import { flyInOut, expand } from '../animations/app.animation';
 
-import {Dish} from '../shared/dish';
-import {DishService} from '../services/dish.service';
 import {FeedbackService} from '../services/feedback.service';
 @Component({
   selector: 'app-contact',
@@ -27,7 +25,8 @@ export class ContactComponent implements OnInit {
   feedback: Feedback;
   contactType = ContactType;
 
-  @ViewChild('fform') feedbackFormDirective;
+  /*Assignment 4 ko can xai fform nen bo line 126 luon*/
+  // @ViewChild('fform') feedbackFormDirective;
   
   isLoading: boolean;
   isShowingResponse: boolean;
@@ -122,7 +121,7 @@ export class ContactComponent implements OnInit {
       contacttype: 'None',
       message: ''
     });
-    this.feedbackFormDirective.resetForm();
+    // this.feedbackFormDirective.resetForm();
   }
 
   onValueChanged(data?: any) {

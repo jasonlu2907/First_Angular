@@ -57,9 +57,13 @@ export class DishdetailComponent implements OnInit {
     this.dishservice.getDishIds().subscribe(dishIds => this.dishIds = dishIds);
     this.route.params
           .pipe(switchMap((params: Params) => { this.visibility = 'hidden'; return this.dishservice.getDish(params['id']); }))
-          .subscribe(dish => { this.dish = dish; this.dishcopy = dish; 
-                              this.setPrevNext(dish.id); this.visibility = 'shown'; },
-                              errmess => this.errMess = <any>errmess);
+          .subscribe(dish => { 
+            this.dish = dish; 
+            this.dishcopy = dish; 
+            this.setPrevNext(dish.id); 
+            this.visibility = 'shown'; 
+          },
+          errmess => this.errMess = <any>errmess );
     
     // CŨ
     // const id = +this.route.snapshot.params['id'];
@@ -137,9 +141,14 @@ export class DishdetailComponent implements OnInit {
     this.dishcopy.comments.push(this.comment);
     this.dishservice.putDish(this.dishcopy)
       .subscribe(dish => {
-        this.dish = dish; this.dishcopy = dish;
+        this.dish = dish; 
+        this.dishcopy = dish;
       },
-      errmess => { this.dish = null; this.dishcopy = null; this.errMess = <any>errmess; });
+      errmess => { 
+        this.dish = null; 
+        this.dishcopy = null; 
+        this.errMess = <any>errmess; 
+      });
     this.commentForm.reset({
       author: '',
       rating: 5,
