@@ -7,7 +7,12 @@ import {
   platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
 
-declare const require: any;
+declare const require: {
+  context(path: string, deep?: boolean, filter?: RegExp): {
+    keys(): string[];
+    <T>(id: string): T;
+  };
+};
 
 // First, initialize the Angular testing environment.
 getTestBed().initTestEnvironment(
@@ -15,7 +20,6 @@ getTestBed().initTestEnvironment(
   platformBrowserDynamicTesting()
 );
 // Then we find all the tests.
-/*This will enable to run a single test on a specific component rather than all the tests. */
-const context = require.context('./', true, /menu\.component\.spec\.ts$/);
+const context = require.context('./', true, /\.spec\.ts$/);
 // And load the modules.
 context.keys().map(context);

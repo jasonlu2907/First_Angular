@@ -2,7 +2,6 @@
 My first Angular Application
 
 ## Steps:
-### First week:
 1. Initialize begin angular app
 - `npm install -g @angular/cli@6.2.1`
 - `ng new conFusion --style=scss`
@@ -35,3 +34,9 @@ http://localhost:3000/promotions
 http://localhost:3000/leaders
 http://localhost:3000/feedback`
 - You can also see images folder in json-server by access `http://localhost:3000/images/<image name>.png`
+
+7. Unit test
+- Change the context in _test.ts_ file
+- Run `ng test`
+
+8. Deployment
